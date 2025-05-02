@@ -1,0 +1,46 @@
+<section class="middle">
+  <div class="container" id="main">
+    <div id="brand_list" class="listnhasx">
+      <h2>
+        Product list admin |
+        <a
+          [routerLink]="['/admin/product-add']"
+          routerLinkActive="router-link-active"
+          class="float-end"
+          >Add Product</a
+        >
+      </h2>
+      <div id="data">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Hình</th>
+              <th scope="col">Tên</th>
+              <th scope="col">Giá</th>
+              <th scope="col" [width]="200">Chức Năng</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of products; index as i">
+              <td>{{ i + 1 }}</td>
+              <td>
+                <img src="{{ product.image }}" width="100" alt="..." />
+              </td>
+              <td>{{ product.name }}</td>
+              <td>{{ product.price | currency }}</td>
+              <td>
+                <a [routerLink]="['/admin/product-edit/' + product._id]" routerLinkActive="router-link-active"
+                  routerLinkActive="router-link-active"
+                  class="btn btn-warning px-3 me-1"
+                  >Edit</a
+                >
+                <button (click)="onDelete(product._id)" class="btn btn-danger px-3 btnxoa">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

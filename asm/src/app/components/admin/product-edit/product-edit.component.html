@@ -1,0 +1,100 @@
+<section class="middle">
+  <div class="container" id="main">
+    <div id="brand_list" class="listnhasx">
+      <h2>Add category</h2>
+      <form [formGroup]="productForm" (ngSubmit)="OnAdd()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            formControlName="name"
+            class="form-control"
+            placeholder=""
+            aria-describedby="namehelpId"
+          />
+          <div
+            *ngIf="
+              !productForm.get('name')?.valid &&
+              productForm.get('name')?.touched
+            "
+          >
+            <div class="text-danger">Tên sản phẩm không được để trống.</div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="brand_id" class="form-label">Category</label>
+          <select id="brand_id"   formControlName="category" class="form-control border-primary">
+            <option *ngFor="let category of categories" value="{{category._id}}">{{category.name}}</option>
+           </select>
+      </div>
+
+        <div class="mb-3">
+          <label for="name" class="form-label">Image</label>
+          <input
+            type="text"
+            name="image"
+            id="image"
+            formControlName="image"
+            class="form-control"
+            placeholder=""
+            aria-describedby="namehelpId"
+          />
+          <div
+            *ngIf="
+              !productForm.get('iamge')?.valid &&
+              productForm.get('image')?.touched
+            "
+          >
+            <div class="text-danger">Hình ảnh không được phép rỗng</div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="name" class="form-label">Price</label>
+          <input
+            type="text"
+            name="price"
+            id="price"
+            formControlName="price"
+            class="form-control"
+            placeholder=""
+            aria-describedby="namehelpId"
+          />
+          <div
+            *ngIf="
+              !productForm.get('price')?.valid &&
+              productForm.get('price')?.touched
+            "
+          >
+            <div class="text-danger">Giá không được phép rỗng</div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="name" class="form-label">Desc</label>
+          <input
+            type="text"
+            name="desc"
+            id="desc"
+            formControlName="desc"
+            class="form-control"
+            placeholder=""
+            aria-describedby="namehelpId"
+          />
+          <div
+            *ngIf="
+              !productForm.get('desc')?.valid &&
+              productForm.get('desc')?.touched
+            "
+          >
+            <div class="text-danger">Mô tả khônng được rỗng</div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary px-3" type="submit">Update</button>
+      </form>
+    </div>
+  </div>
+</section>

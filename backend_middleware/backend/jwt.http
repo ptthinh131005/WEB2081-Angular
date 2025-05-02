@@ -1,0 +1,6 @@
+GET http://localhost:8000/v1/author
+Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDA3NDIzNjAsImV4cCI6MTcwMDc0MjM5MH0.4gQcvznPAj6St4O2Co3MFJsUPN1Dfxir2Riw3tZDH3c
+###
+POST http://localhost:8000/login
+Content-Type: application/json
+{"name": "nguyen"}
